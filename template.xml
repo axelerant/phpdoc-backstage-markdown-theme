@@ -15,7 +15,7 @@
     <transformation writer="twig" query="indexes.traits" source="templates/default/trait.md.twig" />
     <transformation writer="twig" source="templates/default/reports/errors.md.twig" artifact="reports/errors.md" />
     <transformation writer="twig" source="templates/default/reports/deprecated.md.twig" artifact="reports/deprecated.md" />
-    <transformation writer="twig" source="templates/default/reports/markers.html.twig" artifact="reports/markers.html" />
+    <transformation writer="twig" source="templates/default/reports/markers.md.twig" artifact="reports/markers.md" />
     <transformation writer="twig" source="templates/default/indices/files.md.twig" artifact="indices/files.md" />
     <transformation writer="RenderGuide" />
   </transformations>

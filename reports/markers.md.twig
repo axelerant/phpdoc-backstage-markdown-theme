@@ -1,0 +1,38 @@
+{% extends 'base.md.twig' %}
+
+{% set filesWithMarkers = project.files|filter(file => file.markers is not empty) %}
+
+{% block title %}
+{{ project.name }} » Markers
+{% endblock %}
+
+{% block content %}
+## Markers
+
+[Home]({{ path("/") }})
+
+{% if filesWithMarkers is not empty %}
+### Table of Contents
+| File Path | Marker Count |
+|-----------|--------------|
+{% for file in filesWithMarkers %}
+{% if file.markers.count > 0 %}
+| [{{ file.path }}]({{ target_path }}#{{ file.path }}) | {{ file.markers.count }} |
+{% endif %}
+{% endfor %}
+{% else %}
+**No markers have been found in this project.**
+{% endif %}
+
+{% for file in filesWithMarkers %}
+<a id="{{ file.path }}"></a>
+### {{ file.name }}
+<abbr title="{{ file.path }}">{{ file.path }}</abbr>
+
+| Type | Line | Description |
+|------|------|-------------|
+{% for marker in file.markers %}
+| {{ marker.type }} | {{ marker.line }} | {{ marker.message }} |
+{% endfor %}
+{% endfor %}
+{% endblock %}
