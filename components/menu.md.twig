@@ -1,0 +1,10 @@
+{% if depth == 1 %}
+#### [{{ entry.title | shortFQSEN }}]({{ entry.url }})
+{% endif %}
+
+{% if entry.children.count > 0 %}
+- {% for child in entry.children %}
+  - [{{ child.title | shortFQSEN }}]({{ child.url }})
+    {{ toc(child, 'components/menu.md.twig', maxDepth, depth) }}
+  {% endfor %}
+{% endif %}
