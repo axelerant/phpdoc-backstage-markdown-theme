@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+{% set orderedFiles = project.files|sort((a, b) => a.name <=> b.name) %}
+
+## Files
+
+{% for letter in range('a', 'z') %}
+{% set filesStartingWith = orderedFiles|filter(v => v.name|first|lower == letter) %}
+{% if filesStartingWith is not empty %}
+### {{ letter|upper }}
+{% for file in filesStartingWith %}
+- {{ file|route('file:short') }}
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% endblock %}
