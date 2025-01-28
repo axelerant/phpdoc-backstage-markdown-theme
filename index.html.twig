@@ -6,7 +6,7 @@
 {% set node = project.namespace %}
 
 {{ include(
-    'components/table-of-contents.html.twig',
+    'components/table-of-contents.md.twig',
     {
         'node': project.namespace,
         'namespaces': usesNamespaces or not usesPackages ? node.children : [],

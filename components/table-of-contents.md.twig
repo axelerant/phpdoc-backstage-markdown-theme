@@ -63,34 +63,34 @@
 {% if constants is not empty %}
 #### Constants
 {% for constant in constants|sortByVisibility %}
-{{ include('components/table-of-contents-entry.html.twig', {'type': 'constant', 'node': constant}) }}
+{{ include('components/table-of-contents-entry.md.twig', {'type': 'constant', 'node': constant}) }}
 {% endfor %}
 {% endif %}
 
 {% if cases is not empty %}
 #### Cases
 {% for case in cases|sortByVisibility %}
-{{ include('components/table-of-contents-entry.html.twig', {'type': 'case', 'node': case}) }}
+{{ include('components/table-of-contents-entry.md.twig', {'type': 'case', 'node': case}) }}
 {% endfor %}
 {% endif %}
 
 {% if properties is not empty %}
 #### Properties
 {% for property in properties|sortByVisibility %}
-{{ include('components/table-of-contents-entry.html.twig', {'type': 'property', 'node': property}) }}
+{{ include('components/table-of-contents-entry.md.twig', {'type': 'property', 'node': property}) }}
 {% endfor %}
 {% endif %}
 
 {% if methods is not empty %}
 #### Methods
 {% for method in methods|sortByVisibility %}
-{{ include('components/table-of-contents-entry.html.twig', {'type': 'method', 'node': method}) }}
+{{ include('components/table-of-contents-entry.md.twig', {'type': 'method', 'node': method}) }}
 {% endfor %}
 {% endif %}
 
 {% if functions is not empty %}
 #### Functions
 {% for function in functions %}
-{{ include('components/table-of-contents-entry.html.twig', {'type': 'function', 'node': function}) }}
+{{ include('components/table-of-contents-entry.md.twig', {'type': 'function', 'node': function}) }}
 {% endfor %}
 {% endif %}
