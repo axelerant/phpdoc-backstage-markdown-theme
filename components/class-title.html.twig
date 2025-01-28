@@ -1,52 +1,40 @@
-<h2 class="phpdocumentor-content__title">
-    {{ node.name }}
+## {{ node.name }}
 
-    {% if node.parent %}
-    <span class="phpdocumentor-element__extends">
-        extends {{ node.parent|route('class:short') }}
-    </span>
-    {% endif %}
+{% if node.parent %}
+- **Extends**: `{{ node.parent|route('class:short') }}`
+{% endif %}
 
-    {% if usesPackages %}
-        <div class="phpdocumentor-element__package">
-            in package
-            <ul class="phpdocumentor-breadcrumbs">
-                {% for breadcrumb in packages(node) %}
-                    <li class="phpdocumentor-breadcrumb"><a href="{{ link(breadcrumb) }}">{{ breadcrumb.name }}</a></li>
-                {% endfor %}
-            </ul>
-        </div>
-    {% endif %}
+{% if usesPackages %}
+- **In Package**:
+  {% for breadcrumb in packages(node) %}
+  - [{{ breadcrumb.name }}]({{ link(breadcrumb) }})
+  {% endfor %}
+{% endif %}
 
-    {% if node.interfaces is not empty %}
-        <span class="phpdocumentor-element__implements">
-            implements
-            {% for interface in node.interfaces %}
-                {{ interface|route('class:short') }}{% if not loop.last %}, {% endif %}
-            {% endfor %}
-        </span>
-    {% endif %}
+{% if node.interfaces is not empty %}
+- **Implements**:
+  {% for interface in node.interfaces %}
+  `{{ interface|route('class:short') }}{% if not loop.last %}, {% endif %}`
+  {% endfor %}
+{% endif %}
 
-    {% if node.usedTraits is not empty %}
-        <span class="phpdocumentor-element__extends">
-            uses
-            {% for trait in node.usedTraits %}
-                {{ trait|route('class:short') }}{% if not loop.last %}, {% endif %}
-            {% endfor %}
-        </span>
-    {% endif %}
-</h2>
+{% if node.usedTraits is not empty %}
+- **Uses**:
+  {% for trait in node.usedTraits %}
+  `{{ trait|route('class:short') }}{% if not loop.last %}, {% endif %}`
+  {% endfor %}
+{% endif %}
 
-<div class="phpdocumentor-label-line">
+---
+
 {% if node.isReadOnly %}
-    {{ include('components/label.html.twig', {name: 'Read only', value: 'Yes'}, with_context = false) }}
+- **Read Only**: Yes
 {% endif %}
 
 {% if node.isFinal %}
-    {{ include('components/label.html.twig', {name: 'Final', value: 'Yes'}, with_context = false) }}
+- **Final**: Yes
 {% endif %}
 
 {% if node.isAbstract %}
-    {{ include('components/label.html.twig', {name: 'Abstract', value: 'Yes'}, with_context = false) }}
+- **Abstract**: Yes
 {% endif %}
-</div>
