@@ -1,0 +1,43 @@
+{% extends 'base.md.twig' %}
+
+{% set deprecatedElements = project.indexes.elements|filter(element => element.deprecated) %}
+{%
+    set filesWithDeprecatedElements = deprecatedElements|reduce(
+        (unique, item) => item.file.path in unique|keys ? unique : unique|merge({(item.file.path): item.file}), {}
+    )
+%}
+
+{% block title %}
+{{ project.name }} » Deprecated elements
+{% endblock %}
+
+{% block content %}
+## Deprecated
+
+[Home]({{ path("/") }})
+
+{% if filesWithDeprecatedElements is not empty %}
+### Table of Contents
+| File Path |
+|-----------|
+{% for file in filesWithDeprecatedElements %}
+| [{{ file.path }}]({{ target_path }}#{{ file.path }}) |
+{% endfor %}
+
+{% for file in filesWithDeprecatedElements %}
+<a id="{{ file.path }}"></a>
+### {{ file.name }}
+<abbr title="{{ file.path }}">{{ file.path }}</abbr>
+
+| Line | Element | Reason |
+|------|---------|--------|
+{% for element in deprecatedElements|filter(el => el.file == file) %}
+{% for deprecation in element.deprecations %}
+| {{ element.line }} | {{ element|route }} | {{ deprecation.description | description | markdown }} |
+{% endfor %}
+{% endfor %}
+{% endfor %}
+{% else %}
+**No deprecated elements have been found in this project.**
+{% endif %}
+{% endblock %}
