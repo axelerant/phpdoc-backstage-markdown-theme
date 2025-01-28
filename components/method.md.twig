@@ -1,7 +1,7 @@
 #### {{ method.name }}()
 
 {{ include('components/element-found-in.md.twig', {'node': method}) }}
-{{ include('components/summary.html.twig', {'node': method}) }}
+{{ include('components/summary.md.twig', {'node': method}) }}
 {{ include('components/method-signature.md.twig', {'node': method}) }}
 
 {% if method.tags.api %}
