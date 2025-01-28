@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+{{ include('components/breadcrumbs.md.twig') }}
+
+### {{ include('components/trait-title.md.twig') }}
+
+{{ include('components/element-found-in.md.twig') }}
+{{ include('components/element-header.md.twig') }}
+
+{{ include('components/constants.md.twig') }}
+{{ include('components/properties.md.twig') }}
+{{ include('components/methods.md.twig') }}
+{% endblock %}

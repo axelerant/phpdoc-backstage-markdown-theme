@@ -1,0 +1,8 @@
+## {{ node.name }}
+
+{% if node.usedTraits is not empty %}
+- **Uses**:
+  {% for trait in node.usedTraits %}
+  `{{ trait|route('trait:short') }}{% if not loop.last %}, {% endif %}`
+  {% endfor %}
+{% endif %}
