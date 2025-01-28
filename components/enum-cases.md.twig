@@ -2,7 +2,6 @@
 
 {% if cases is not empty %}
 ### Cases
-{{ include('components/headerlink.html.twig', {'on': node, 'at': 'cases'}, with_context = false) }}
 
 {% for case in cases %}
 {{ include('components/enum-case.md.twig') }}

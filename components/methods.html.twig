@@ -2,7 +2,6 @@
 
 {% if methods is not empty %}
 ### Methods
-{{ include('components/headerlink.html.twig', {'on': node, 'at': 'methods'}, with_context = false) }}
 
 {% for method in methods %}
 {{ include('components/method.html.twig') }}
