@@ -1,0 +1,42 @@
+{% extends 'base.md.twig' %}
+
+{% set filesWithErrors = project.files|filter(file => file.allErrors is not empty) %}
+
+{% block title %}
+{{ project.name }} » Compilation errors
+{% endblock %}
+
+{% block content %}
+## Errors
+
+[Home]({{ path("/") }})
+
+{% if filesWithErrors is not empty %}
+### Table of Contents
+| File Path | Error Count |
+|-----------|-------------|
+{% set errorCount = 0 %}
+{% for file in project.files|filter(file => file.allErrors is not empty) %}
+{% if file.allerrors.count > 0 %}
+| [{{ file.path }}]({{ target_path }}#{{ file.path }}) | {{ file.allErrors.count }} |
+{% endif %}
+{% set errorCount = errorCount + file.allerrors.count %}
+{% endfor %}
+{% endif %}
+
+{% if errorCount <= 0 %}
+**No errors have been found in this project.**
+{% endif %}
+
+{% for file in filesWithErrors %}
+<a id="{{ file.path }}"></a>
+### {{ file.name }}
+<abbr title="{{ file.path }}">{{ file.path }}</abbr>
+
+| Type | Line | Description |
+|------|------|-------------|
+{% for error in file.allerrors %}
+| {{ error.severity }} | {{ error.line }} | {{ error.code|trans(error.context) }} |
+{% endfor %}
+{% endfor %}
+{% endblock %}
