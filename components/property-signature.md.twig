@@ -1,0 +1,1 @@
+`{{ node.visibility }} {% if node.static %}static {% endif %}{{ not node.type ? "mixed" : node.type|route('class:short')|join('|')|raw }} ${{ node.name }}{% if node.default is not null %} = {{ node.default is not null ? node.default : '""' }}{% endif %}`
