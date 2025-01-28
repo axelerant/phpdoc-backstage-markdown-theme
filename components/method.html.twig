@@ -12,7 +12,7 @@
         {{ method.name }}()
         {{ include('components/headerlink.html.twig', {'on': method}, with_context = false) }}
     </h4>
-    {{ include('components/element-found-in.html.twig', {'node': method}) }}
+    {{ include('components/element-found-in.md.twig', {'node': method}) }}
     {{ include('components/summary.html.twig', {'node': method}) }}
     {{ include('components/method-signature.html.twig', {'node': method}) }}
     <div class="phpdocumentor-label-line">
@@ -20,8 +20,8 @@
         {{ include('components/label.html.twig', {name: 'API', value: 'Yes'}, with_context = false) }}
     {% endif %}
     </div>
-    {{ include('components/deprecation.html.twig', {'node': method}) }}
-    {{ include('components/description.html.twig', {'node': method}) }}
+    {{ include('components/deprecation.md.twig', {'node': method}) }}
+    {{ include('components/description.md.twig', {'node': method}) }}
     {{ include('components/method-arguments.html.twig', {'node': method}) }}
     {{ include('components/tags.html.twig', {'node': method }) }}
     {{ include('components/attributes.md.twig' , {'node': method}) }}

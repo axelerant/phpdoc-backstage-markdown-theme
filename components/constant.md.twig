@@ -1,11 +1,11 @@
 #### {{ constant.name }}
 
-{{ include('components/element-found-in.html.twig', {'node': constant}) }}
+{{ include('components/element-found-in.md.twig', {'node': constant}) }}
 {{ include('components/summary.html.twig', {'node': constant}) }}
-{{ include('components/deprecation.html.twig', {'node': constant}) }}
+{{ include('components/deprecation.md.twig', {'node': constant}) }}
 {{ include('components/constant-signature.md.twig', {'node': constant}) }}
 
-{{ include('components/description.html.twig', {'node': constant}) }}
-{{ include('components/description.html.twig', {'node': constant.var[0]}) }}
+{{ include('components/description.md.twig', {'node': constant}) }}
+{{ include('components/description.md.twig', {'node': constant.var[0]}) }}
 {{ include('components/tags.html.twig', {'node': constant}) }}
 {{ include('components/attributes.md.twig', {'node': constant}) }}

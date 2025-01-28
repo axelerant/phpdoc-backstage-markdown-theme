@@ -8,11 +8,11 @@
         {{ case.name }}
         {{ include('components/headerlink.html.twig', {'on': case}, with_context = false) }}
     </h4>
-    {{ include('components/element-found-in.html.twig', {'node': case}) }}
+    {{ include('components/element-found-in.md.twig', {'node': case}) }}
     {{ include('components/summary.html.twig', {'node': case}) }}
-    {{ include('components/deprecation.html.twig', {'node': case}) }}
-    {{ include('components/description.html.twig', {'node': case}) }}
-    {{ include('components/description.html.twig', {'node': case.var[0]}) }}
+    {{ include('components/deprecation.md.twig', {'node': case}) }}
+    {{ include('components/description.md.twig', {'node': case}) }}
+    {{ include('components/description.md.twig', {'node': case.var[0]}) }}
     {{ include ('components/tags.html.twig', {'node': case}) }}
     {{ include('components/attributes.md.twig' , {'node': case}) }}
 </article>

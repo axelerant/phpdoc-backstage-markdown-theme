@@ -19,7 +19,7 @@
   - Link: [{{ not tag.description.empty ? tag.description|description|markdown : tag.link }}]({{ tag.link }})
   {% endif %}
   {% if not tag.link %}
-  - {{ include('components/description.html.twig', {'node': tag}) }}
+  - {{ include('components/description.md.twig', {'node': tag}) }}
   {% endif %}
 {% endfor %}
 {% endfor %}

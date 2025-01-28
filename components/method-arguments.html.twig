@@ -6,6 +6,6 @@
   {% if argument.default is not null %}
   - Default: `{{ argument.default }}`
   {% endif %}
-  {{ include('components/description.html.twig', {'node': argument}) }}
+  {{ include('components/description.md.twig', {'node': argument}) }}
 {% endfor %}
 {% endif %}
