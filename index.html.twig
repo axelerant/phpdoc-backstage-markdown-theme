@@ -1,22 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <section>
-        <h2>Documentation</h2>
+# Documentation
 
-        {% set node = project.namespace %}
+{% set node = project.namespace %}
 
-        {{
-        include(
-            'components/table-of-contents.html.twig',
-            {
-                'node': project.namespace,
-                'namespaces': usesNamespaces or not usesPackages ? node.children : [],
-                'packages': usesPackages ? project.package.children : []
-            }
-        )
-        }}
-        {{ include('components/constants.html.twig', {'node': project.namespace}) }}
-        {{ include('components/functions.html.twig', {'node': project.namespace}) }}
-    </section>
+{{ include(
+    'components/table-of-contents.html.twig',
+    {
+        'node': project.namespace,
+        'namespaces': usesNamespaces or not usesPackages ? node.children : [],
+        'packages': usesPackages ? project.package.children : []
+    }
+) }}
+
+{{ include('components/constants.html.twig', {'node': project.namespace}) }}
+{{ include('components/functions.html.twig', {'node': project.namespace}) }}
 {% endblock %}
