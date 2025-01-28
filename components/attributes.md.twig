@@ -2,9 +2,8 @@
 
 {% if attributes is not empty %}
 ### Attributes
-{{ include('components/headerlink.html.twig', {'on': node, 'at': 'attributes'}, with_context = false) }}
 
 {% for attribute in attributes %}
-{{ include('components/attribute.html.twig') }}
+{{ include('components/attribute.md.twig') }}
 {% endfor %}
 {% endif %}

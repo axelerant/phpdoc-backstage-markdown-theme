@@ -1,0 +1,5 @@
+- **#[{{ attribute.attribute | route('class:short') }}]**
+
+{% for argument in attribute.arguments %}
+  - {% if argument.name %}${{ argument.name }}: {% endif %}{{ argument.value }}
+{% endfor %}
