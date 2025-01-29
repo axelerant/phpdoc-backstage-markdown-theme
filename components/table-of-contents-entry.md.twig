@@ -2,25 +2,11 @@
 
 - **[{{ node is property ? '$' }}{{ node.name }}{{ node is method or node is function ? '()' }}]({{ macros.markdown_link(curr_template, node) }})**
   {% if node.deprecated %}(deprecated){% endif %}
-
-  {% if node is constant %}
-  - Value: `{{ node.value }}`
-  {% endif %}
-
-  {% if node is enumCase %}
-  {% if node.value %}
-  - Value: `{{ node.value }}`
-  {% endif %}
-  {% endif %}
-
-  {% if node is property %}
-  - Type: `{{ node.type ? macros.markdown_route(curr_template, node.type)|join('|')|raw : 'mixed' }}`
-  {% endif %}
-
-  {% if node is method or node is function %}
-  - Return Type: `{{ macros.markdown_route(curr_template, node.response.type)|join('|')|raw }}`
-  {% endif %}
+  {% if node is constant %} = {{ node.value }}{% endif %}
+  {% if node is enumCase and node.value %} = {{ node.value }}{% endif %}
+  {% if node is property %} : `{{ node.type ? node.type|route('class:short')|join('|')|raw : 'mixed' }}`{% endif %}
+  {% if node is method or node is function %} : `{{ node.response.type|route('class:short')|join('|')|raw }}`{% endif %}
 
 {% if node.summary %}
-> {{ node.summary }}
+*{{ node.summary }}*
 {% endif %}
