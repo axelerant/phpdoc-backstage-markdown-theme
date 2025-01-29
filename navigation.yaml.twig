@@ -1,0 +1,18 @@
+nav:
+{% for version in project.versions %}
+  - Version {{ version.number }}:
+{% for toc in version.tableOfContents %}
+      - {{ toc.name|title }}:
+{% for root in toc.roots %}
+          - {{ root.title|shortFQSEN }}: {{ root.url|replace({'.html': '.md'}) }}
+{% endfor %}
+{% endfor %}
+{% endfor %}
+
+  - Reports:
+      - Deprecated: reports/deprecated.md
+      - Errors: reports/errors.md
+      - Markers: reports/markers.md
+
+  - Indices:
+      - Files: indices/files.md

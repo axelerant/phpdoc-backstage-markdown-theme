@@ -17,6 +17,7 @@
     <transformation writer="twig" source="reports/deprecated.md.twig" artifact="reports/deprecated.md" />
     <transformation writer="twig" source="reports/markers.md.twig" artifact="reports/markers.md" />
     <transformation writer="twig" source="indices/files.md.twig" artifact="indices/files.md" />
+    <transformation writer="twig" source="navigation.yaml.twig" artifact="navigation.yaml" />
     <transformation writer="RenderGuide" />
   </transformations>
   <parameters>
