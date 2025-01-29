@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <template>
-  <name>default</name>
-  <author>Mike van Riel</author>
-  <email>mike@phpdoc.org</email>
+  <name>phpdoc-backstage-markdown-theme</name>
+  <author>Zeshan Ziya</author>
+  <email>zeshan.ziya@axelerant.com</email>
   <version>1.0.0</version>
   <transformations>
-    <transformation writer="twig" source="templates/default/index.md.twig" artifact="index.md"/>
-    <transformation writer="twig" query="files" source="templates/default/file.md.twig" />
-    <transformation writer="twig" query="indexes.namespaces" source="templates/default/namespace.md.twig" />
-    <transformation writer="twig" query="indexes.packages" source="templates/default/package.md.twig" />
-    <transformation writer="twig" query="indexes.classes" source="templates/default/class.md.twig" />
-    <transformation writer="twig" query="indexes.enums" source="templates/default/enum.md.twig" />
-    <transformation writer="twig" query="indexes.interfaces" source="templates/default/interface.md.twig" />
-    <transformation writer="twig" query="indexes.traits" source="templates/default/trait.md.twig" />
-    <transformation writer="twig" source="templates/default/reports/errors.md.twig" artifact="reports/errors.md" />
-    <transformation writer="twig" source="templates/default/reports/deprecated.md.twig" artifact="reports/deprecated.md" />
-    <transformation writer="twig" source="templates/default/reports/markers.md.twig" artifact="reports/markers.md" />
-    <transformation writer="twig" source="templates/default/indices/files.md.twig" artifact="indices/files.md" />
+    <transformation writer="twig" source="index.md.twig" artifact="index.md"/>
+    <transformation writer="twig" query="files" source="file.md.twig" />
+    <transformation writer="twig" query="indexes.namespaces" source="namespace.md.twig" />
+    <transformation writer="twig" query="indexes.packages" source="package.md.twig"/>
+    <transformation writer="twig" query="indexes.classes" source="class.md.twig"/>
+    <transformation writer="twig" query="indexes.enums" source="enum.md.twig" />
+    <transformation writer="twig" query="indexes.interfaces" source="interface.md.twig" />
+    <transformation writer="twig" query="indexes.traits" source="trait.md.twig" />
+    <transformation writer="twig" source="reports/errors.md.twig" artifact="reports/errors.md" />
+    <transformation writer="twig" source="reports/deprecated.md.twig" artifact="reports/deprecated.md" />
+    <transformation writer="twig" source="reports/markers.md.twig" artifact="reports/markers.md" />
+    <transformation writer="twig" source="indices/files.md.twig" artifact="indices/files.md" />
     <transformation writer="RenderGuide" />
   </transformations>
   <parameters>
