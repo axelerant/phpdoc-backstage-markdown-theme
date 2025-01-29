@@ -1,5 +1,5 @@
 {% import "includes/macros.twig" as macros %}
-
+{% set curr_template = "indices" %}
 {% extends 'base.md.twig' %}
 
 {% block content %}
@@ -12,7 +12,7 @@
 {% if filesStartingWith is not empty %}
 ### {{ letter|upper }}
 {% for file in filesStartingWith %}
-- {{ macros.markdown_route(file) }}
+- {{ macros.markdown_route(curr_template, file) }}
 {% endfor %}
 {% endif %}
 {% endfor %}

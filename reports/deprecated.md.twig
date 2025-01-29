@@ -1,5 +1,5 @@
 {% extends 'base.md.twig' %}
-
+{% set curr_template = "reports" %}
 {% set deprecatedElements = project.indexes.elements|filter(element => element.deprecated) %}
 {%
     set filesWithDeprecatedElements = deprecatedElements|reduce(

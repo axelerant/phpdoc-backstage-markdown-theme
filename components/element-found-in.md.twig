@@ -1,4 +1,4 @@
 {% import "includes/macros.twig" as macros %}
 
 **Found in**:
-[{{ macros.markdown_link(node.file) }}]({{ node.file.path }}) : Line {{ node.line }}
+[{{ node.file.path }}]({{ macros.markdown_link(curr_template, node.file) }}) : Line {{ node.line }}

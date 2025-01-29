@@ -5,13 +5,13 @@
 {% if node.parent is not empty %}
 - **Extends**:
   {% for interface in node.parent %}
-  `{{ macros.markdown_route(interface) }}{% if not loop.last %}, {% endif %}`
+  `{{ macros.markdown_route(curr_template, interface) }}{% if not loop.last %}, {% endif %}`
   {% endfor %}
 {% endif %}
 
 {% if usesPackages %}
 - **In**:
   {% for breadcrumb in packages(node) %}
-  - [{{ breadcrumb.name }}]({{ macros.markdown_link(breadcrumb) }})
+  - [{{ breadcrumb.name }}]({{ macros.markdown_link(curr_template, breadcrumb) }})
   {% endfor %}
 {% endif %}

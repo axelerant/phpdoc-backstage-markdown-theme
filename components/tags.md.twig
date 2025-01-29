@@ -12,10 +12,10 @@
   - Version: `{{ tag.version }}`
   {% endif %}
   {% if tag.type %}
-  - Type: `{{ macros.markdown_route(tag.type)|join('|')|raw }}`
+  - Type: `{{ macros.markdown_route(curr_template, tag.type)|join('|')|raw }}`
   {% endif %}
   {% if tag.reference %}
-  - Reference: `{{ macros.markdown_route(tag.reference)|join('|')|raw }}`
+  - Reference: `{{ macros.markdown_route(curr_template, tag.reference)|join('|')|raw }}`
   {% endif %}
   {% if tag.link %}
   - Link: [{{ not tag.description.empty ? tag.description|description|markdown : tag.link }}]({{ tag.link }})

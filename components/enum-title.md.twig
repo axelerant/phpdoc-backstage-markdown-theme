@@ -9,20 +9,20 @@
 {% if usesPackages %}
 - **In Package**:
   {% for breadcrumb in packages(node) %}
-  - [{{ breadcrumb.name }}]({{ macros.markdown_link(breadcrumb) }})
+  - [{{ breadcrumb.name }}]({{ macros.markdown_link(curr_template, breadcrumb) }})
   {% endfor %}
 {% endif %}
 
 {% if node.interfaces is not empty %}
 - **Implements**:
   {% for interface in node.interfaces %}
-  `{{ macros.markdown_route(interface) }}{% if not loop.last %}, {% endif %}`
+  `{{ macros.markdown_route(curr_template, interface) }}{% if not loop.last %}, {% endif %}`
   {% endfor %}
 {% endif %}
 
 {% if node.usedTraits is not empty %}
 - **Uses**:
   {% for trait in node.usedTraits %}
-  `{{ macros.markdown_route(trait) }}{% if not loop.last %}, {% endif %}`
+  `{{ macros.markdown_route(curr_template, trait) }}{% if not loop.last %}, {% endif %}`
   {% endfor %}
 {% endif %}

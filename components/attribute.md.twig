@@ -1,6 +1,6 @@
 {% import "includes/macros.twig" as macros %}
 
-- **#[{{ macros.markdown_route(attribute.attribute) }}]**
+- **#[{{ macros.markdown_route(curr_template, attribute.attribute) }}]**
 
 {% for argument in attribute.arguments %}
   - {% if argument.name %}${{ argument.name }}: {% endif %}{{ argument.value }}

@@ -1,9 +1,10 @@
 {% extends 'base.md.twig' %}
-
+{% set curr_template = "index" %}
 {% block content %}
 # Documentation
 
 {% set node = project.namespace %}
+
 
 {{ include(
     'components/table-of-contents.md.twig',

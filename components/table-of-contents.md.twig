@@ -9,23 +9,23 @@
 ### Table of Contents
 
 {% if packages|default([]) is not empty %}
-#### Packages 2
+#### Packages
 {% for package in packages %}
-- **{{ macros.markdown_route(package) }}**
+- **{{ macros.markdown_route(curr_template, package) }}**
 {% endfor %}
 {% endif %}
 
 {% if namespaces|default([]) is not empty %}
 #### Namespaces
 {% for namespace in namespaces %}
-- **{{ macros.markdown_route(namespace) }}**
+- **{{ macros.markdown_route(curr_template, namespace) }}**
 {% endfor %}
 {% endif %}
 
 {% if node.interfaces is not empty %}
 #### Interfaces
 {% for interface in node.interfaces %}
-- **{{ macros.markdown_route(interface) }}**
+- **{{ macros.markdown_route(curr_template, interface) }}**
   {% if interface.summary %}
   {{ interface.summary }}
   {% endif %}
@@ -35,7 +35,7 @@
 {% if node.classes is not empty %}
 #### Classes
 {% for class in node.classes %}
-- **{{ macros.markdown_route(class) }}**
+- **{{ macros.markdown_route(curr_template, class) }}**
   {% if class.summary %}
   {{ class.summary }}
   {% endif %}
@@ -45,7 +45,7 @@
 {% if node.traits is not empty %}
 #### Traits
 {% for trait in node.traits %}
-- **{{ macros.markdown_route(trait) }}**
+- **{{ macros.markdown_route(curr_template, trait) }}**
   {% if trait.summary %}
   {{ trait.summary }}
   {% endif %}
@@ -55,7 +55,7 @@
 {% if node.enums is not empty %}
 #### Enums
 {% for enum in node.enums %}
-- **{{ macros.markdown_route(enum) }}**
+- **{{ macros.markdown_route(curr_template, enum) }}**
   {% if enum.summary %}
   {{ enum.summary }}
   {% endif %}
