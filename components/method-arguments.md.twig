@@ -1,8 +1,10 @@
+{% import "includes/macros.twig" as macros %}
+
 {% if node.arguments|length > 0 %}
 #### Parameters
 
 {% for argument in node.arguments %}
-- **${{ argument.name }}**: `{{ argument.type|route('class:short')|join('|')|raw }}`
+- **${{ argument.name }}**: `{{ macros.markdown_route(argument.type)|join('|')|raw }}`
   {% if argument.default is not null %}
   - Default: `{{ argument.default }}`
   {% endif %}

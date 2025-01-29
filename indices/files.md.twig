@@ -1,3 +1,5 @@
+{% import "includes/macros.twig" as macros %}
+
 {% extends 'base.md.twig' %}
 
 {% block content %}
@@ -10,7 +12,7 @@
 {% if filesStartingWith is not empty %}
 ### {{ letter|upper }}
 {% for file in filesStartingWith %}
-- {{ file|route('file:short') }}
+- {{ macros.markdown_route(file) }}
 {% endfor %}
 {% endif %}
 {% endfor %}

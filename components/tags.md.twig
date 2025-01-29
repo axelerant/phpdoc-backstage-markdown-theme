@@ -1,3 +1,5 @@
+{% import "includes/macros.twig" as macros %}
+
 {% set tags = node.tags|filter((v, k) => k not in ['var', 'param', 'property', 'property-read', 'property-write', 'method', 'return', 'package', 'api', 'deprecated']) %}
 
 {% if tags|length > 0 and tags|first|length > 0 %}
@@ -10,10 +12,10 @@
   - Version: `{{ tag.version }}`
   {% endif %}
   {% if tag.type %}
-  - Type: `{{ tag.type|route('class:short')|join('|')|raw }}`
+  - Type: `{{ macros.markdown_route(tag.type)|join('|')|raw }}`
   {% endif %}
   {% if tag.reference %}
-  - Reference: `{{ tag.reference|route('class:short')|join('|')|raw }}`
+  - Reference: `{{ macros.markdown_route(tag.reference)|join('|')|raw }}`
   {% endif %}
   {% if tag.link %}
   - Link: [{{ not tag.description.empty ? tag.description|description|markdown : tag.link }}]({{ tag.link }})

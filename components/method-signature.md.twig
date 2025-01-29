@@ -1,7 +1,9 @@
+{% import "includes/macros.twig" as macros %}
+
 `{{ node.visibility }} {% if node.abstract %}abstract {% endif %}{% if node.final %}final {% endif %}{% if node.static %}static {% endif %}{% if node.hasReturnByReference %}&amp; {% endif %}{{ node.name }}(`
 
 {% for argument in node.arguments %}
-`{% if argument.default is not null %}[{% endif %}{% if not loop.first %}, {% endif %}{{ argument.type|route('class:short')|join('|')|raw }} {% if argument.isVariadic %}...{% endif %}{% if argument.byReference %}&{% endif %}${{ argument.name }}{% if argument.default is not null %} = {{ argument.default }} ]{% endif %}`
+`{% if argument.default is not null %}[{% endif %}{% if not loop.first %}, {% endif %}{{ macros.markdown_route(argument.type)|join('|')|raw }} {% if argument.isVariadic %}...{% endif %}{% if argument.byReference %}&{% endif %}${{ argument.name }}{% if argument.default is not null %} = {{ argument.default }} ]{% endif %}`
 {% endfor %}
 
-`) : {{ node.response.type|route('class:short')|join('|')|raw }}`
+`) : {{ macros.markdown_route(node.response.type)|join('|')|raw }}`

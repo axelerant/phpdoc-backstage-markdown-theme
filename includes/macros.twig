@@ -1,2 +1,2 @@
-{% macro markdown_route(value) %} [{{ value.name }}]({{ value|route('url')|replace({".html":".md"}) }}) {% endmacro %}
-{% macro markdown_link(value) %} {{ link(value)|replace({".html":".md"}) }} {% endmacro %}
+{% macro markdown_route(value) %} [{{ value.name }}]({{ value|route('url') }}) {% endmacro %}
+{% macro markdown_link(value) %} {{ link(value) }} {% endmacro %}

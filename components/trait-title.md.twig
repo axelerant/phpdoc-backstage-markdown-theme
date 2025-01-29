@@ -1,8 +1,10 @@
+{% import "includes/macros.twig" as macros %}
+
 ## {{ node.name }}
 
 {% if node.usedTraits is not empty %}
 - **Uses**:
   {% for trait in node.usedTraits %}
-  `{{ trait|route('trait:short') }}{% if not loop.last %}, {% endif %}`
+  `{{ macros.markdown_route(trait) }}{% if not loop.last %}, {% endif %}`
   {% endfor %}
 {% endif %}

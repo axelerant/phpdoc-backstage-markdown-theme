@@ -1,3 +1,5 @@
+{% import "includes/macros.twig" as macros %}
+
 {% set constants = constants(node) %}
 {% set properties = properties(node) %}
 {% set methods = methods(node) %}
@@ -7,23 +9,23 @@
 ### Table of Contents
 
 {% if packages|default([]) is not empty %}
-#### Packages
+#### Packages 2
 {% for package in packages %}
-- **{{ package|route('class:short') }}**
+- **{{ macros.markdown_route(package) }}**
 {% endfor %}
 {% endif %}
 
 {% if namespaces|default([]) is not empty %}
 #### Namespaces
 {% for namespace in namespaces %}
-- **{{ namespace|route('class:short') }}**
+- **{{ macros.markdown_route(namespace) }}**
 {% endfor %}
 {% endif %}
 
 {% if node.interfaces is not empty %}
 #### Interfaces
 {% for interface in node.interfaces %}
-- **{{ interface|route('class:short') }}**
+- **{{ macros.markdown_route(interface) }}**
   {% if interface.summary %}
   {{ interface.summary }}
   {% endif %}
@@ -33,7 +35,7 @@
 {% if node.classes is not empty %}
 #### Classes
 {% for class in node.classes %}
-- **{{ class|route('class:short') }}**
+- **{{ macros.markdown_route(class) }}**
   {% if class.summary %}
   {{ class.summary }}
   {% endif %}
@@ -43,7 +45,7 @@
 {% if node.traits is not empty %}
 #### Traits
 {% for trait in node.traits %}
-- **{{ trait|route('class:short') }}**
+- **{{ macros.markdown_route(trait) }}**
   {% if trait.summary %}
   {{ trait.summary }}
   {% endif %}
@@ -53,7 +55,7 @@
 {% if node.enums is not empty %}
 #### Enums
 {% for enum in node.enums %}
-- **{{ enum|route('class:short') }}**
+- **{{ macros.markdown_route(enum) }}**
   {% if enum.summary %}
   {{ enum.summary }}
   {% endif %}
