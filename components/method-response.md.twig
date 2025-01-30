@@ -3,9 +3,9 @@
 {% if (node.response.type and node.response.type != 'void' and node.response.type != 'mixed') or not node.response.description.empty %}
 #### Return Values
 
-`{{ macros.markdown_route(curr_template, node.response.type)|join('|')|raw }}`
+{{ node.response.type|route('class:short')|join('|')|raw }}
 
 {% if not node.response.description.empty %}
-- {{ include('components/description.md.twig', {'node': node.response}) }}
+{{ include('components/description.md.twig', {'node': node.response}) }}
 {% endif %}
 {% endif %}
