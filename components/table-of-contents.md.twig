@@ -26,9 +26,9 @@
 #### Interfaces
 {% for interface in node.interfaces %}
 - **{{ macros.markdown_route(curr_template, interface) }}**
-  {% if interface.summary %}
+{% if interface.summary %}
   {{ interface.summary }}
-  {% endif %}
+{% endif %}
 {% endfor %}
 {% endif %}
 
@@ -36,9 +36,9 @@
 #### Classes
 {% for class in node.classes %}
 - **{{ macros.markdown_route(curr_template, class) }}**
-  {% if class.summary %}
+{% if class.summary %}
   {{ class.summary }}
-  {% endif %}
+{% endif %}
 {% endfor %}
 {% endif %}
 
@@ -46,9 +46,9 @@
 #### Traits
 {% for trait in node.traits %}
 - **{{ macros.markdown_route(curr_template, trait) }}**
-  {% if trait.summary %}
+{% if trait.summary %}
   {{ trait.summary }}
-  {% endif %}
+{% endif %}
 {% endfor %}
 {% endif %}
 
@@ -56,9 +56,9 @@
 #### Enums
 {% for enum in node.enums %}
 - **{{ macros.markdown_route(curr_template, enum) }}**
-  {% if enum.summary %}
+{% if enum.summary %}
   {{ enum.summary }}
-  {% endif %}
+{% endif %}
 {% endfor %}
 {% endif %}
 
