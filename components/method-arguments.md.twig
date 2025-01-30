@@ -4,7 +4,7 @@
 #### Parameters
 
 {% for argument in node.arguments %}
-- **${{ argument.name }}**: `{{ macros.markdown_route(curr_template, argument.type)|join('|')|raw }}`
+- **${{ argument.name }}**: {{ argument.type|route('class:short')|join('|') }}
   {% if argument.default is not null %}
   - Default: `{{ argument.default }}`
   {% endif %}

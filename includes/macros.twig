@@ -4,20 +4,25 @@
     {%- set links = [] -%}
 
     {%- for url in urls -%}
-        {%- set url = url|replace({'.html': '.md'}) -%}
-
-        {# Apply conditional replacement #}
-        {%- if curr_template == 'index' -%}
-            {%- set url = './' ~ url -%}
+        {%- if url == 'mixed' -%}
+            {%- set links = links|merge(['mixed']) -%}
         {%- else -%}
-            {%- set url = '../' ~ url -%}
-        {%- endif -%}
+            {%- set url = url|replace({'.html': '.md'}) -%}
 
-        {%- set links = links|merge(['[' ~ value.name ~ '](' ~ url ~ ')']) -%}
+            {# Apply conditional replacement #}
+            {%- if curr_template == 'index' -%}
+                {%- set url = './' ~ url -%}
+            {%- else -%}
+                {%- set url = '../' ~ url -%}
+            {%- endif -%}
+
+            {%- set links = links|merge(['[' ~ value.name ~ '](' ~ url ~ ')']) -%}
+        {%- endif -%}
     {%- endfor -%}
 
     {{ links|join(' ') }}
 {%- endmacro -%}
+
 
 {%- macro markdown_link(curr_template, value) -%}
     {%- set urls = link(value) -%}
@@ -25,17 +30,22 @@
     {%- set links = [] -%}
 
     {%- for url in urls -%}
-        {%- set url = url|replace({'.html': '.md'}) -%}
-
-        {# Apply conditional replacement #}
-        {%- if curr_template == 'index' -%}
-            {%- set url = './' ~ url -%}
+        {%- if url == 'mixed' -%}
+            {%- set links = links|merge(['mixed']) -%}
         {%- else -%}
-            {%- set url = '../' ~ url -%}
-        {%- endif -%}
+            {%- set url = url|replace({'.html': '.md'}) -%}
 
-        {%- set links = links|merge([url]) -%}
+            {# Apply conditional replacement #}
+            {%- if curr_template == 'index' -%}
+                {%- set url = './' ~ url -%}
+            {%- else -%}
+                {%- set url = '../' ~ url -%}
+            {%- endif -%}
+
+            {%- set links = links|merge([url]) -%}
+        {%- endif -%}
     {%- endfor -%}
 
     {{ links|join(' ') }}
 {%- endmacro -%}
+
