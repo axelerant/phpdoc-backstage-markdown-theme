@@ -1,18 +1,19 @@
 nav:
+  - API Reports:
+    - Home: api-reports/index.md
 {% for version in project.versions %}
-
 {% for toc in version.tableOfContents %}
-  - {{ toc.name|title }}:
+    - {{ toc.name|title }}:
 {% for root in toc.roots %}
-      - {{ root.title|shortFQSEN }}: api-reports/{{ root.url|replace({'.html': '.md'}) }}
+        - {{ root.title|shortFQSEN }}: api-reports/{{ root.url|replace({'.html': '.md'}) }}
 {% endfor %}
 {% endfor %}
 {% endfor %}
 
-  - Reports:
-      - Deprecated: api-reports/reports/deprecated.md
-      - Errors: api-reports/reports/errors.md
-      - Markers: api-reports/reports/markers.md
+    - Reports:
+        - Deprecated: api-reports/reports/deprecated.md
+        - Errors: api-reports/reports/errors.md
+        - Markers: api-reports/reports/markers.md
 
-  - Indices:
-      - Files: api-reports/indices/files.md
+    - Indices:
+        - Files: api-reports/indices/files.md
