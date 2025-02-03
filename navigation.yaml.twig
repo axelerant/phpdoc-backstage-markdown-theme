@@ -1,10 +1,10 @@
 nav:
 {% for version in project.versions %}
-  - Version {{ version.number }}:
+
 {% for toc in version.tableOfContents %}
-      - {{ toc.name|title }}:
+  - {{ toc.name|title }}:
 {% for root in toc.roots %}
-          - {{ root.title|shortFQSEN }}: {{ root.url|replace({'.html': '.md'}) }}
+      - {{ root.title|shortFQSEN }}: {{ root.url|replace({'.html': '.md'}) }}
 {% endfor %}
 {% endfor %}
 {% endfor %}
