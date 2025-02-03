@@ -4,7 +4,7 @@ nav:
 {% for toc in version.tableOfContents %}
   - {{ toc.name|title }}:
 {% for root in toc.roots %}
-      - api-reports/{{ root.title|shortFQSEN }}: {{ root.url|replace({'.html': '.md'}) }}
+      - {{ root.title|shortFQSEN }}: api-reports/{{ root.url|replace({'.html': '.md'}) }}
 {% endfor %}
 {% endfor %}
 {% endfor %}
