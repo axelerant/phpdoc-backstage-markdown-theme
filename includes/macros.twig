@@ -10,7 +10,7 @@
 
             {%- set url = url|replace({'.html': '.md', '#function_': '#', '#method_': '#'}) -%}
             {# Make the anchor part lowercase #}
-            {% set url = '#' in url ? url|split('#')[0] ~ '#' ~ url|split('#')[1]|lower : url %}
+            {%- set url = '#' in url ? url|split('#')[0] ~ '#' ~ url|split('#')[1]|lower : url -%}
 
             {# Apply conditional replacement #}
             {%- if curr_template == 'index' -%}
@@ -38,7 +38,7 @@
         {%- else -%}
             {%- set url = url|replace({'.html': '.md', '#function_': '#', '#method_': '#'}) -%}
             {# Make the anchor part lowercase #}
-            {% set url = '#' in url ? url|split('#')[0] ~ '#' ~ url|split('#')[1]|lower : url %}
+            {%- set url = '#' in url ? url|split('#')[0] ~ '#' ~ url|split('#')[1]|lower : url -%}
 
             {# Apply conditional replacement #}
             {%- if curr_template == 'index' -%}
