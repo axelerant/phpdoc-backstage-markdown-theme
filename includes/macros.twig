@@ -7,7 +7,8 @@
         {%- if url == 'mixed' -%}
             {%- set links = links|merge(['mixed']) -%}
         {%- else -%}
-            {%- set url = url|replace({'.html': '.md'}) -%}
+
+            {%- set url = url|replace({'.html': '.md', '#function_': '#', '#method_': '#'}) -%}
 
             {# Apply conditional replacement #}
             {%- if curr_template == 'index' -%}
@@ -33,7 +34,7 @@
         {%- if url == 'mixed' -%}
             {%- set links = links|merge(['mixed']) -%}
         {%- else -%}
-            {%- set url = url|replace({'.html': '.md'}) -%}
+            {%- set url = url|replace({'.html': '.md', '#function_': '#', '#method_': '#'}) -%}
 
             {# Apply conditional replacement #}
             {%- if curr_template == 'index' -%}
