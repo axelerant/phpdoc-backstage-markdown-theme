@@ -4,8 +4,8 @@
   {% if node.deprecated %}(deprecated){% endif %}
   {% if node is constant %} = {{ node.value }}{% endif %}
   {% if node is enumCase and node.value %} = {{ node.value }}{% endif %}
-  {% if node is property %} : `{{ node.type ? node.type|route('class:short')|join('|')|raw : 'mixed' }}`{% endif %}
-  {% if node is method or node is function %} : `{{ node.response.type|route('class:short')|join('|')|raw }}`{% endif %}
+  {% if node is property %} : `{{ node.type ? macros.markdown_argument_type(node.type) : 'mixed' }}`{% endif %}
+  {% if node is method or node is function %} : `{{ macros.markdown_argument_type(node.response.type) }}`{% endif %}
 
 {% if node.summary %}
 *{{ node.summary }}*

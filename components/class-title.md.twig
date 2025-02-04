@@ -16,7 +16,7 @@
 {% if node.interfaces is not empty %}
 - **Implements**:
   {% for interface in node.interfaces %}
-  `{{ macros.markdown_route(curr_template, interface) }}{% if not loop.last %}, {% endif %}`
+  `{{ macros.markdown_argument_type(interface) }}{% if not loop.last %}, {% endif %}`
   {% endfor %}
 {% endif %}
 
