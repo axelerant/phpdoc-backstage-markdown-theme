@@ -3,7 +3,7 @@
 ## {{ node.name }}
 
 {% if node.parent %}
-- **Extends**: `{{ macros.markdown_route(curr_template, node.parent) }}`
+- **Extends**: `{{ macros.markdown_argument_type(node.parent) }}`
 {% endif %}
 
 {% if usesPackages %}

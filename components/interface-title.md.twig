@@ -5,7 +5,7 @@
 {% if node.parent is not empty %}
 - **Extends**:
   {% for interface in node.parent %}
-  `{{ macros.markdown_route(curr_template, interface) }}{% if not loop.last %}, {% endif %}`
+  `{{ macros.markdown_argument_type(interface) }}{% if not loop.last %}, {% endif %}`
   {% endfor %}
 {% endif %}
 
