@@ -25,7 +25,7 @@
 {% if node.interfaces is not empty %}
 #### Interfaces
 {% for interface in node.interfaces %}
-- **{{ macros.markdown_argument_type(interface) }}**
+- **{{ macros.markdown_route(curr_template, interface) }}**
 {% if interface.summary %}
   {{ interface.summary }}
 {% endif %}
