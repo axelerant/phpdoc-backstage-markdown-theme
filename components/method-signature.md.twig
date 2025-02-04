@@ -6,4 +6,4 @@
     {%- if not loop.first -%}, {% endif -%}
     {{- macros.markdown_argument_type(argument.type)|raw }} {% if argument.isVariadic %}...{% endif %}{% if argument.byReference %} &{% endif %}${{ argument.name }}{% if argument.default is not null %} = {{ argument.default }}{% endif -%}
 {%- endfor -%}
-) : {{- node.response.type|route('class:short')|join('|')|raw -}}
+) : {{- macros.markdown_argument_type(node.response.type) -}}
