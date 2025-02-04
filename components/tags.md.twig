@@ -8,21 +8,21 @@
 {% for name, seriesOfTag in tags %}
 {% for tag in seriesOfTag %}
 - **{{ name }}**
-  {% if tag.version %}
+{% if tag.version %}
   - Version: `{{ tag.version }}`
-  {% endif %}
-  {% if tag.type %}
-  - Type: `{{ macros.markdown_route(curr_template, tag.type)|join('|')|raw }}`
-  {% endif %}
-  {% if tag.reference %}
-  - Reference: `{{ macros.markdown_route(curr_template, tag.reference)|join('|')|raw }}`
-  {% endif %}
-  {% if tag.link %}
+{% endif %}
+{% if tag.type %}
+  - Type: `{{ macros.markdown_argument_type(tag.type) }}`
+{% endif %}
+{% if tag.reference %}
+  - Reference: `{{ macros.markdown_argument_type(tag.reference) }}`
+{% endif %}
+{% if tag.link %}
   - Link: [{{ not tag.description.empty ? tag.description|description|markdown : tag.link }}]({{ tag.link }})
-  {% endif %}
-  {% if not tag.link %}
+{% endif %}
+{% if not tag.link %}
   - {{ include('components/description.md.twig', {'node': tag}) }}
-  {% endif %}
+{% endif %}
 {% endfor %}
 {% endfor %}
 {% endif %}
