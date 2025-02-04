@@ -54,3 +54,16 @@
     {{ links|join(' ') }}
 {%- endmacro -%}
 
+{%- macro markdown_argument_type(value) -%}
+    {%- set urls = value|route('url') -%}
+    {%- set urls = urls is iterable ? urls : [urls] -%}
+    {%- set links = [] -%}
+
+    {%- for url in urls -%}
+        {# {%- set url = url|replace({'&lt;': '<', '&gt;': '>'}) -%} #}
+        {%- set links = links|merge([url]) -%}
+    {%- endfor -%}
+
+    {{ links|join('|')|raw }}
+{%- endmacro -%}
+
