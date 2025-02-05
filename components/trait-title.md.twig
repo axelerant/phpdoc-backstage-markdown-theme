@@ -3,6 +3,6 @@
 {% if node.usedTraits is not empty %}
 - **Uses**:
   {% for trait in node.usedTraits %}
-  `{{ trait|route('trait:short')|markdown_route(curr_template) }}{% if not loop.last %}, {% endif %}`
+  {{ trait|route('trait:short')|markdown_route(curr_template) }}{% if not loop.last %}, {% endif %}
   {% endfor %}
 {% endif %}

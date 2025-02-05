@@ -1,1 +1,1 @@
-`{{ node.visibility }} {% if node.final %}final {% endif %}{{ not node.type ? "mixed" : node.type|route('class:short')|markdown_route(curr_template)|join('|')|raw }} {{ node.name }} = {{ node.value | default('""') }}`
+{{ node.visibility }} {% if node.final %}final {% endif %}{{ not node.type ? "mixed" : node.type|route('class:short')|markdown_route(curr_template)|join('|')|raw }} {{ node.name }} = {{ node.value | default('""') }}

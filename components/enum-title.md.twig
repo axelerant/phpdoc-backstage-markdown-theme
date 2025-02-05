@@ -13,14 +13,14 @@
 
 {% if node.interfaces is not empty %}
 - **Implements**:
-  {% for interface in node.interfaces %}
-  `{{ interface|route('class:short')|markdown_route(curr_template) }}{% if not loop.last %}, {% endif %}`
-  {% endfor %}
+{% for interface in node.interfaces %}
+  {{ interface|route('class:short')|markdown_route(curr_template) }}{% if not loop.last %}, {% endif %}
+{% endfor %}
 {% endif %}
 
 {% if node.usedTraits is not empty %}
 - **Uses**:
   {% for trait in node.usedTraits %}
-  `{{ trait|route('class:short')|markdown_route(curr_template) }}{% if not loop.last %}, {% endif %}`
+  {{ trait|route('class:short')|markdown_route(curr_template) }}{% if not loop.last %}, {% endif %}
   {% endfor %}
 {% endif %}
