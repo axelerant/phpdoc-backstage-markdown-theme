@@ -2,9 +2,8 @@
 
 {{ include('components/element-found-in.md.twig', {'node': method}) }}
 {{ include('components/summary.md.twig', {'node': method}) }}
-```php
-{{ include('components/method-signature.md.twig', {'node': method}) }}
-```
+!!! note ""
+    {{ include('components/method-signature.md.twig', {'node': method}) }}
 
 {% if method.tags.api %}
 - **API**: Yes
