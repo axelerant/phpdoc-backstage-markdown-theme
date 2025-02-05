@@ -1,5 +1,3 @@
-{% import "includes/macros.twig" as macros %}
-
 - **[{{ node is property ? '$' }}{{ node.name }}{{ node is method or node is function ? '()' }}]({{ link(node)|markdown_link(curr_template) }})**
   {% if node.deprecated %}(deprecated){% endif %}
   {% if node is constant %} = {{ node.value }}{% endif %}
