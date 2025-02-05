@@ -1,17 +1,15 @@
-{% import "includes/macros.twig" as macros %}
-
 ## {{ node.name }}
 
 {% if node.parent is not empty %}
-- **Extends**:
+- **extends**:
   {% for interface in node.parent %}
-  `{{ macros.markdown_argument_type(interface) }}{% if not loop.last %}, {% endif %}`
+  {{ interface|route('class:short')|markdown_route(curr_template) }}{% if not loop.last %}, {% endif %}
   {% endfor %}
 {% endif %}
 
 {% if usesPackages %}
 - **In**:
   {% for breadcrumb in packages(node) %}
-  - [{{ breadcrumb.name }}]({{ macros.markdown_link(curr_template, breadcrumb) }})
+  - [{{ breadcrumb.name }}]({{ link(breadcrumb)|markdown_link(curr_template) }})
   {% endfor %}
 {% endif %}

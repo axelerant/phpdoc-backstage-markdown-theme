@@ -1,29 +1,27 @@
-{% import "includes/macros.twig" as macros %}
-
 ## {{ node.name }}
 
 {% if node.parent %}
-- **Extends**: `{{ macros.markdown_argument_type(node.parent) }}`
+- **extends**: {{ node.parent|route('class:short')|markdown_route(curr_template) }}
 {% endif %}
 
 {% if usesPackages %}
 - **In Package**:
   {% for breadcrumb in packages(node) %}
-  - [{{ breadcrumb.name }}]({{ macros.markdown_link(curr_template, breadcrumb) }})
+  - [{{ breadcrumb.name }}]({{ link(breadcrumb)|markdown_link(curr_template) }})
   {% endfor %}
 {% endif %}
 
 {% if node.interfaces is not empty %}
 - **Implements**:
   {% for interface in node.interfaces %}
-  `{{ macros.markdown_argument_type(interface) }}{% if not loop.last %}, {% endif %}`
+  {{ interface|route('class:short')|markdown_route(curr_template) }}{% if not loop.last %}, {% endif %}
   {% endfor %}
 {% endif %}
 
 {% if node.usedTraits is not empty %}
 - **Uses**:
   {% for trait in node.usedTraits %}
-  `{{ macros.markdown_route(curr_template, trait) }}{% if not loop.last %}, {% endif %}`
+  {{ trait|route('class:short')|markdown_route(curr_template) }}{% if not loop.last %}, {% endif %}
   {% endfor %}
 {% endif %}
 

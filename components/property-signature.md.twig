@@ -1,3 +1,1 @@
-{% import "includes/macros.twig" as macros %}
-
-`{{ node.visibility }} {% if node.static %}static {% endif %}{{ not node.type ? "mixed" : macros.markdown_argument_type(node.type) }} ${{ node.name }}{% if node.default is not null %} = {{ node.default is not null ? node.default : '""' }}{% endif %}`
+{{ node.visibility }} {% if node.static %}static {% endif %}{{ not node.type ? "mixed" : node.type|route('class:short')|markdown_route(curr_template)|join('|')|raw }} ${{ node.name }}{% if node.default is not null %} = {{ node.default is not null ? node.default : '""' }}{% endif %}

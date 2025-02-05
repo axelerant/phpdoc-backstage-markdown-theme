@@ -1,6 +1,4 @@
-{% import "includes/macros.twig" as macros %}
-
-- **#[{{ macros.markdown_route(curr_template, attribute.attribute) }}]**
+- **#[{{ attribute.attribute|route('class:short')|markdown_route(curr_template) }}]**
 
 {% for argument in attribute.arguments %}
   - {% if argument.name %}${{ argument.name }}: {% endif %}{{ argument.value }}

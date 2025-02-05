@@ -1,7 +1,5 @@
-{% import "includes/macros.twig" as macros %}
-
 {% set breadcrumbs = usesNamespaces ? breadcrumbs(node) : packages(node) %}
 
 {% for breadcrumb in breadcrumbs %}
-- [{{ breadcrumb.name }}]({{ macros.markdown_link(curr_template, breadcrumb) }})
+- [{{ breadcrumb.name }}]({{ link(breadcrumb)|markdown_link(curr_template) }})
 {% endfor %}
