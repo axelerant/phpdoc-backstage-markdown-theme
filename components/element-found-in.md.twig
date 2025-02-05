@@ -1,3 +1,3 @@
 {% import "includes/macros.twig" as macros %}
 
-{{ macros.markdown_route(curr_template, node.file) }} : Line {{ node.line }}
+{{ node.file|route('file:short')|markdown_route(curr_template) }} : Line {{ node.line }}

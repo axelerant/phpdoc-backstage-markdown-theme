@@ -12,7 +12,7 @@
 {% if filesStartingWith is not empty %}
 ### {{ letter|upper }}
 {% for file in filesStartingWith %}
-- {{ macros.markdown_route(curr_template, file) }}
+- {{ file|route('file:short')|markdown_route(curr_template) }}
 {% endfor %}
 {% endif %}
 {% endfor %}

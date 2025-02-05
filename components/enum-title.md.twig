@@ -16,13 +16,13 @@
 {% if node.interfaces is not empty %}
 - **Implements**:
   {% for interface in node.interfaces %}
-  `{{ macros.markdown_argument_type(interface) }}{% if not loop.last %}, {% endif %}`
+  `{{ interface|route('class:short')|markdown_route(curr_template) }}{% if not loop.last %}, {% endif %}`
   {% endfor %}
 {% endif %}
 
 {% if node.usedTraits is not empty %}
 - **Uses**:
   {% for trait in node.usedTraits %}
-  `{{ macros.markdown_route(curr_template, trait) }}{% if not loop.last %}, {% endif %}`
+  `{{ trait|route('class:short')|markdown_route(curr_template) }}{% if not loop.last %}, {% endif %}`
   {% endfor %}
 {% endif %}
