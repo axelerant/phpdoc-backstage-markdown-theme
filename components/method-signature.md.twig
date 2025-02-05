@@ -4,6 +4,6 @@
 {{- node.name -}} (
 {%- for argument in node.arguments -%}
     {%- if not loop.first -%}, {% endif -%}
-    {{- macros.markdown_argument_type(argument.type)|raw }} {% if argument.isVariadic %}...{% endif %}{% if argument.byReference %} &{% endif %}${{ argument.name }}{% if argument.default is not null %} = {{ argument.default }}{% endif -%}
+    {{- argument.type|route('class:short')|markdown_route(curr_template)|join('|')|raw }} {% if argument.isVariadic %}...{% endif %}{% if argument.byReference %} &{% endif %}${{ argument.name }}{% if argument.default is not null %} = {{ argument.default }}{% endif -%}
 {%- endfor -%}
-) : {{- macros.markdown_argument_type(node.response.type) -}}
+) : {{- node.response.type|route('class:short')|markdown_route(curr_template)|join('|')|raw -}}
