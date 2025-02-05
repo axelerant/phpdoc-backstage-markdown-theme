@@ -9,7 +9,7 @@
 {% if usesPackages %}
 - **In Package**:
   {% for breadcrumb in packages(node) %}
-  - [{{ breadcrumb.name }}]({{ macros.markdown_link(curr_template, breadcrumb) }})
+  - [{{ breadcrumb.name }}]({{ link(breadcrumb)|markdown_link(curr_template) }})
   {% endfor %}
 {% endif %}
 
