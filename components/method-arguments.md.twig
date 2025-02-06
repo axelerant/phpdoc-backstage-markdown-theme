@@ -3,9 +3,14 @@
 
 {% for argument in node.arguments %}
 - **${{ argument.name }}**: {{ argument.type|route('class:short')|markdown_route(curr_template)|join('|')|raw }}
-  {% if argument.default is not null %}
-  - Default: `{{ argument.default }}`
-  {% endif %}
-  {{ include('components/description.md.twig', {'node': argument}) }}
+
+{% if argument.default is not null %}
+  **Default:** {{ argument.default }}
+
+{% endif %}
+{% if not argument.description.empty %}
+  *{{ include('components/description.md.twig', {'node': argument}) }}*
+{% endif %}
+
 {% endfor %}
 {% endif %}
