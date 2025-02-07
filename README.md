@@ -14,7 +14,9 @@ This repository provides a **Markdown theme for [phpDocumentor](https://www.phpd
 
 ## Prerequisites
 
-- **phpDocumentor**: [Installation guide](https://docs.phpdoc.org/3.0/guide/getting-started/installing.html)
+- **phpDocumentor** (Nightly/Unstable Release):
+  > **Note**: This theme relies on extension functionality that is currently only available in the nightly (unstable) release of phpDocumentor.
+  > [Installation guide](https://docs.phpdoc.org/3.0/guide/getting-started/installing.html)
 - **Theme Extension**: [phpdoc-backstage-markdown-extension](https://github.com/axelerant/phpdoc-backstage-markdown-extension)
 
 ---
@@ -22,9 +24,12 @@ This repository provides a **Markdown theme for [phpDocumentor](https://www.phpd
 ## Installation
 
 1. **Clone or download** this repository to a location accessible by your project.
-2. Copy the `markdown-theme` folder to your projects `.phpdoc/themes` directory, or a location of your choosing.
-3. Copy the `phpdoc-backstage-markdown-extension` folder to your projects `.phpdoc/extesions` directory.
-4. Generate the docs using docker
-    ```bash
-    docker run --rm -v "$(pwd):/data" "phpdoc/phpdoc:3-unstable" --template=".phpdoc/themes/phpdoc-backstage-markdown-theme"
-    ```
+2. Copy the **`phpdoc-backstage-markdown-theme`** folder to your project's `.phpdoc/themes` directory (or another location of your choosing).
+3. Copy the **`phpdoc-backstage-markdown-extension`** folder to your project's `.phpdoc/extensions` directory.
+4. Generate the documentation using Docker:
+
+   ```bash
+   docker run --rm \
+     -v "$(pwd):/data" \
+     phpdoc/phpdoc:3-unstable \
+     --template=".phpdoc/themes/phpdoc-backstage-markdown-theme"
