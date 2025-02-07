@@ -33,3 +33,12 @@ This repository provides a **Markdown theme for [phpDocumentor](https://www.phpd
      -v "$(pwd):/data" \
      phpdoc/phpdoc:3-unstable \
      --template=".phpdoc/themes/phpdoc-backstage-markdown-theme"
+
+    #This command mounts your current working directory into the Docker container and tells phpDocumentor to use the phpdoc-backstage-markdown-theme.
+
+5. **Known Issue**: Some generated files may have the `.html` extension instead of `.md`.
+   To fix this, run the following command (replacing `docs-dir` with your actual output folder):
+
+    ~~~~bash
+    find docs-dir -type f -name "*.html" -exec bash -c 'mv "$0" "${0%.html}.md"' {} \;
+    ~~~~
